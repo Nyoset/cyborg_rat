@@ -2,6 +2,8 @@
 
 public class GameMaster 
 {
+    const string initialPositionTag = "InitialPosition";
+
     public InputHandler inputHandler;
 
     public static GameMaster instance = null;
@@ -36,5 +38,17 @@ public class GameMaster
 
         mainCamera = PrefabLoader.Load<CameraController>(Resource.Camera);
         player = PrefabLoader.Load<PlayerController>(Resource.Player);
+
+        player.transform.position = GetSceneInitialPosition();
+    }
+
+    Vector3 GetSceneInitialPosition()
+    {
+        GameObject initialPosition = GameObject.FindWithTag(initialPositionTag);
+        if (initialPosition == null)
+        {
+            return Vector3.zero;
+        }
+        return initialPosition.transform.position;
     }
 }

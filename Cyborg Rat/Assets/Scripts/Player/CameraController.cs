@@ -3,16 +3,16 @@
 public class CameraController : MonoBehaviour
 {
     GameObject player;
-    Vector3 offset;
+    float heightOffset;
 
     void Start()
     {
         player = GameMaster.instance.player.gameObject;
-        offset = transform.position - player.transform.position;
+        heightOffset = transform.position.z - player.transform.position.z;
     }
 
     void LateUpdate()
     {
-        transform.position = player.transform.position + offset;
+        transform.position = player.transform.position + heightOffset * Vector3.forward;
     }
 }
