@@ -6,6 +6,8 @@ public class GameMaster
 
     public static GameMaster instance = null;
     public GameObject masterObject;
+    public Camera mainCamera;
+    public GameObject player;
 
     [RuntimeInitializeOnLoadMethod]
     static void Initialize()
@@ -25,8 +27,13 @@ public class GameMaster
     public GameMaster()
     {
         Debug.Log("Initializing GameMaster");
+
         masterObject = new GameObject();
         masterObject.name = "MasterObject";
+
         inputHandler = masterObject.AddComponent<InputHandler>();
+
+        mainCamera = PrefabLoader.Load<Camera>(Resource.Camera);
+        player = PrefabLoader.Load<GameObject>(Resource.Player);
     }
 }
