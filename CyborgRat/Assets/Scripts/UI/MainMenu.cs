@@ -4,7 +4,17 @@ public class MainMenu : Menu
 {
     override protected void Start()
     {
-        buttonsViewModels = new[] { new MenuButtonViewModel("Hello", delegate { }) };
+        actions = new ButtonAction[] { StartGame, LoadGame };
         base.Start();
+    }
+
+    void StartGame()
+    {
+        Debug.Log("Play");
+    }
+
+    void LoadGame()
+    {
+        Debug.Log("Load");
     }
 }

@@ -1,23 +1,64 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
+﻿using UnityEngine;
 
 public class Menu : MonoBehaviour
 {
-    protected MenuButtonViewModel[] buttonsViewModels;
+    public MenuButton[] buttons;
+    protected ButtonAction[] actions;
+
+    int selectedButton;
 
     protected virtual void Start()
     {
-        foreach (MenuButtonViewModel buttonViewModel in buttonsViewModels)
+        if (actions.Length != buttons.Length)
         {
-            MenuButton button = PrefabLoader.Load<MenuButton>(Resource.MenuButton);
-            button.initializeButton(buttonViewModel);
+            Debug.Log("Buttons badly configured!");
+            return;
+        }
+        
+        for (int i = 0; i < actions.Length; ++i)
+        {
+            buttons[i].SetAction(actions[i]);
+        }
+        HighlightButton();
+
+        GameMaster.instance.inputHandler.upArrowListener += PreviousButton;
+        GameMaster.instance.inputHandler.downArrowListener += NextButton;
+        GameMaster.instance.inputHandler.enterListener += SelectButton;
+    }
+
+    void SelectButton()
+    {
+        buttons[selectedButton]?.PerformAction();
+    }
+ 
+    void PreviousButton()
+    {
+        selectedButton -= 1;
+        if (selectedButton < 0)
+            selectedButton = buttons.Length - 1;
+        HighlightButton();
+    }
+
+    void NextButton()
+    {
+        selectedButton += 1;
+        if (selectedButton >= buttons.Length)
+            selectedButton = 0;
+        HighlightButton();
+    }
+
+    void HighlightButton()
+    {
+        for (int i = 0; i < buttons.Length; ++i)
+        {
+            buttons[i].isSelected = (i == selectedButton);
         }
     }
 
-    void Update()
+    private void OnDestroy()
     {
-        
+        GameMaster.instance.inputHandler.upArrowListener -= PreviousButton;
+        GameMaster.instance.inputHandler.downArrowListener -= NextButton;
+        GameMaster.instance.inputHandler.enterListener -= SelectButton;
     }
 }

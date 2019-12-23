@@ -6,11 +6,13 @@ public delegate void ButtonAction();
 
 public class MenuButton : MonoBehaviour
 {
-	public Button button;
-    public TextMeshProUGUI textLabel;
-    public Image buttonImage;
+    public string buttonText = "";
+    public Sprite buttonImage;
+    ButtonAction action;
 
-    public MenuButtonViewModel viewModel;
+    Button button;
+    TextMeshProUGUI textLabel;
+    Image image;
 
     bool _isSelected;
     public bool isSelected
@@ -26,32 +28,28 @@ public class MenuButton : MonoBehaviour
         }
     }
 
-    public void initializeButton(MenuButtonViewModel viewModel)
+    private void Awake()
     {
-        this.viewModel = viewModel;
-        button.onClick.AddListener(PerformAction);
-        textLabel.text = viewModel.text;
-    }
+        button = gameObject.GetComponentInChildren<Button>();
+        image = gameObject.GetComponentInChildren<Image>();
+        textLabel = gameObject.GetComponentInChildren<TextMeshProUGUI>();
 
-    public void PerformAction()
-	{
-        viewModel.action();
-	}
+        textLabel.text = buttonText;
+        image.sprite = buttonImage;
+    }
 
     void ChangeColor(bool selected)
     {
-        buttonImage.color = selected ? Color.red : Color.white;
+        image.color = selected ? Color.red : Color.white;
     }
-}
 
-public class MenuButtonViewModel
-{
-    public string text;
-    public ButtonAction action;
-
-    public MenuButtonViewModel(string text, ButtonAction action)
+    public void SetAction(ButtonAction action)
     {
-        this.text = text;
         this.action = action;
+    }
+
+    public void PerformAction()
+    {
+        action?.Invoke();
     }
 }
