@@ -3,6 +3,7 @@
 public class GameMaster 
 {
     const string initialPositionTag = "InitialPosition";
+    const string menuTag = "Menu";
 
     public InputHandler inputHandler;
 
@@ -37,9 +38,18 @@ public class GameMaster
         inputHandler = masterObject.AddComponent<InputHandler>();
 
         mainCamera = PrefabLoader.Load<CameraController>(Resource.Camera);
-        player = PrefabLoader.Load<PlayerController>(Resource.Player);
 
-        player.transform.position = GetSceneInitialPosition();
+        if (!isSceneMenu())
+        {
+            player = PrefabLoader.Load<PlayerController>(Resource.Player);
+            player.transform.position = GetSceneInitialPosition();
+        }
+    }
+
+    bool isSceneMenu()
+    {
+        GameObject menuObject = GameObject.FindWithTag(menuTag);
+        return menuObject;
     }
 
     Vector3 GetSceneInitialPosition()

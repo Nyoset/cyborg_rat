@@ -8,6 +8,9 @@ public enum Resource
 
     [Description("Player")]
     Player,
+
+    [Description("MenuButton")]
+    MenuButton,
 }
 
 public class PrefabLoader : MonoBehaviour
