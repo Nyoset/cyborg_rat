@@ -6,6 +6,9 @@ public class Menu : MonoBehaviour
     protected ButtonAction[] actions;
 
     int selectedButton;
+    public bool isActive;
+
+    CanvasGroup canvas;
 
     protected virtual void Start()
     {
@@ -21,14 +24,32 @@ public class Menu : MonoBehaviour
         }
         HighlightButton();
 
+        canvas = gameObject.GetComponent<CanvasGroup>();
+        Activate(isActive);
+
         GameMaster.instance.inputHandler.upArrowListener += PreviousButton;
         GameMaster.instance.inputHandler.downArrowListener += NextButton;
         GameMaster.instance.inputHandler.enterListener += SelectButton;
     }
 
+    public void Activate(bool active)
+    {
+        isActive = active;
+        canvas.alpha = active ? 1f : 0f;
+        canvas.blocksRaycasts = active;
+    }
+
+    public void ActivateScreen<T>()
+    {
+        transform.root.GetComponentInChildren<NewGameMenu>().Activate(true);
+    }
+
     void SelectButton()
     {
-        buttons[selectedButton]?.PerformAction();
+        if (isActive)
+        {
+            buttons[selectedButton]?.PerformAction();
+        }
     }
  
     void PreviousButton()

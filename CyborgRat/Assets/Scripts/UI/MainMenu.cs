@@ -4,13 +4,14 @@ public class MainMenu : Menu
 {
     override protected void Start()
     {
-        actions = new ButtonAction[] { StartGame, LoadGame };
+        actions = new ButtonAction[] { GoToNewGameMenu, LoadGame };
         base.Start();
     }
 
-    void StartGame()
+    void GoToNewGameMenu()
     {
-        SceneLoader.StartGame();
+        ActivateScreen<NewGameMenu>();
+        Activate(false);
     }
 
     void LoadGame()
