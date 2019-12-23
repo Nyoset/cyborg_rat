@@ -2,18 +2,21 @@
 
 public class Menu : MonoBehaviour
 {
-
     public MenuButton[] buttons;
     protected ButtonAction[] actions;
     public InputField[] inputs;
 
-    int selectedButton;
+    private int selectedButton;
     public bool isActive;
+    private bool oldActive;
 
     CanvasGroup canvas;
 
     protected virtual void Start()
     {
+        canvas = gameObject.GetComponent<CanvasGroup>();
+        Activate(isActive);
+
         if (actions.Length != buttons.Length)
         {
             Debug.Log("Buttons badly configured!");
@@ -26,9 +29,6 @@ public class Menu : MonoBehaviour
         }
         HighlightButton();
 
-        canvas = gameObject.GetComponent<CanvasGroup>();
-        Activate(isActive);
-
         GameMaster.instance.inputHandler.upArrowListener += PreviousButton;
         GameMaster.instance.inputHandler.downArrowListener += NextButton;
         GameMaster.instance.inputHandler.enterListener += SelectButton;
@@ -36,14 +36,14 @@ public class Menu : MonoBehaviour
 
     public void Activate(bool active)
     {
-        isActive = active;
+        oldActive = active;
         canvas.alpha = active ? 1f : 0f;
         canvas.blocksRaycasts = active;
     }
 
-    public void ActivateScreen<T>()
+    public void ActivateScreen<T>() where T : Menu
     {
-        transform.root.GetComponentInChildren<NewGameMenu>().Activate(true);
+        transform.root.GetComponentInChildren<T>().Activate(true);
     }
 
     void SelectButton()
@@ -52,6 +52,7 @@ public class Menu : MonoBehaviour
         {
             buttons[selectedButton]?.PerformAction();
         }
+        isActive = oldActive;
     }
  
     void PreviousButton()

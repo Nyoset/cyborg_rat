@@ -3,7 +3,7 @@ public class NewGameMenu : Menu
 {
     override protected void Start()
     {
-        actions = new ButtonAction[] { StartGame };
+        actions = new ButtonAction[] { StartGame, Back };
         base.Start();
     }
 
@@ -13,4 +13,9 @@ public class NewGameMenu : Menu
         GameMaster.instance.StartGame(playerName);
     }
 
+    void Back()
+    {
+        ActivateScreen<MainMenu>();
+        Activate(false);
+    }
 }
