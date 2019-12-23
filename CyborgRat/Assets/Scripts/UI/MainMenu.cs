@@ -10,7 +10,7 @@ public class MainMenu : Menu
 
     void StartGame()
     {
-        Debug.Log("Play");
+        SceneLoader.StartGame();
     }
 
     void LoadGame()
