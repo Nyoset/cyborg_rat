@@ -287,6 +287,7 @@ MonoBehaviour:
   buttons:
   - {fileID: 403422913}
   - {fileID: 1342286123}
+  inputs: []
   isActive: 1
 --- !u!225 &430767428
 CanvasGroup:
@@ -310,7 +311,7 @@ PrefabInstance:
     - target: {fileID: 250413869331007690, guid: 7225da41bd9d964448bdf2ce0e48b3e6,
         type: 3}
       propertyPath: m_Name
-      value: InputField
+      value: PlayerNameInput
       objectReference: {fileID: 0}
     - target: {fileID: 2399284491388435421, guid: 7225da41bd9d964448bdf2ce0e48b3e6,
         type: 3}
@@ -442,6 +443,11 @@ PrefabInstance:
       propertyPath: labelText
       value: Player name
       objectReference: {fileID: 0}
+    - target: {fileID: 3902490826862962092, guid: 7225da41bd9d964448bdf2ce0e48b3e6,
+        type: 3}
+      propertyPath: placeholderText
+      value: Write...
+      objectReference: {fileID: 0}
     - target: {fileID: 7600407202680745742, guid: 7225da41bd9d964448bdf2ce0e48b3e6,
         type: 3}
       propertyPath: m_textInfo.characterCount
@@ -500,6 +506,18 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 565864871}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1283439997 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3902490826862962092, guid: 7225da41bd9d964448bdf2ce0e48b3e6,
+    type: 3}
+  m_PrefabInstance: {fileID: 565864871}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4407ca453fd0d8d4f9b6b719febee103, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1342286122 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8923428801187418296, guid: 51a3fd2804f2d43c2baf253c34e9efb8,
@@ -553,6 +571,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttons:
   - {fileID: 1449097763}
+  inputs:
+  - {fileID: 1283439997}
   isActive: 0
 --- !u!114 &1345621316
 MonoBehaviour:

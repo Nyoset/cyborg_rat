@@ -5,16 +5,18 @@ using UnityEngine.EventSystems;
 public class InputField : MonoBehaviour, IPointerClickHandler
 {
     public string labelText;
+    public string placeholderText;
 
     TMP_InputField input;
-    TextMeshProUGUI label;
+    public TextMeshProUGUI label;
+    public TextMeshProUGUI placeholderLabel;
 
     private void Awake()
     {
         input = gameObject.GetComponentInChildren<TMP_InputField>();
-        label = gameObject.GetComponentInChildren<TextMeshProUGUI>();
 
         label.text = labelText;
+        placeholderLabel.text = placeholderText;
     }
 
     private void Start()
@@ -28,9 +30,9 @@ public class InputField : MonoBehaviour, IPointerClickHandler
         input.Select();
     }
 
-    public void SetLabelText(string newText)
+    public string GetInputText()
     {
-        label.text = newText;
+        return input.text;
     }
 
     public void OnPointerClick(PointerEventData eventData)

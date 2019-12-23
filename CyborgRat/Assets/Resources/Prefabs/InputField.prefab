@@ -59,8 +59,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4407ca453fd0d8d4f9b6b719febee103, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  input: {fileID: 3028867497161896464}
+  labelText: 
+  placeholderText: 
   label: {fileID: 8261727975183582131}
+  placeholderLabel: {fileID: 7600407202680745742}
 --- !u!1 &3138291440927578426
 GameObject:
   m_ObjectHideFlags: 0
@@ -278,7 +280,7 @@ GameObject:
   - component: {fileID: 403934689710556393}
   - component: {fileID: 8261727975183582131}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: TextLabel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -329,7 +331,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New Text
+  m_text: Label Text
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -398,7 +400,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 15.304626, w: 0}
   m_textInfo:
     textComponent: {fileID: 8261727975183582131}
-    characterCount: 8
+    characterCount: 10
     spriteCount: 0
     spaceCount: 1
     wordCount: 2

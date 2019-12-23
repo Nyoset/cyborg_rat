@@ -1,5 +1,4 @@
-﻿using UnityEngine;
-
+﻿
 public class NewGameMenu : Menu
 {
     override protected void Start()
@@ -10,7 +9,8 @@ public class NewGameMenu : Menu
 
     void StartGame()
     {
-        SceneLoader.StartGame();
+        string playerName = inputs[0]?.GetInputText();
+        GameMaster.instance.StartGame(playerName);
     }
 
 }

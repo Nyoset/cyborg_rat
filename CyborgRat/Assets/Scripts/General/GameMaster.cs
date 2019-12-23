@@ -66,6 +66,12 @@ public class GameMaster
         return initialPosition.transform.position;
     }
 
+    public void StartGame(string playerName)
+    {
+        gameData = new GameData(playerName);
+        SceneLoader.StartGame();
+    }
+
     public void SaveGame()
     {
         SaveSystem.SaveGame(gameData);

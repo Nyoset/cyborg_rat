@@ -2,8 +2,10 @@
 
 public class Menu : MonoBehaviour
 {
+
     public MenuButton[] buttons;
     protected ButtonAction[] actions;
+    public InputField[] inputs;
 
     int selectedButton;
     public bool isActive;
