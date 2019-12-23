@@ -8,7 +8,6 @@ public class Menu : MonoBehaviour
 
     private int selectedButton;
     public bool isActive;
-    private bool oldActive;
 
     CanvasGroup canvas;
 
@@ -17,7 +16,7 @@ public class Menu : MonoBehaviour
         canvas = gameObject.GetComponent<CanvasGroup>();
         Activate(isActive);
 
-        if (actions.Length != buttons.Length)
+        if (actions?.Length != buttons?.Length)
         {
             Debug.Log("Buttons badly configured!");
             return;
@@ -28,15 +27,27 @@ public class Menu : MonoBehaviour
             buttons[i].SetAction(actions[i]);
         }
         HighlightButton();
+    }
 
+    void AddListeners()
+    {
         GameMaster.instance.inputHandler.upArrowListener += PreviousButton;
         GameMaster.instance.inputHandler.downArrowListener += NextButton;
         GameMaster.instance.inputHandler.enterListener += SelectButton;
     }
 
+    void RemoveListeners()
+    {
+        GameMaster.instance.inputHandler.upArrowListener -= PreviousButton;
+        GameMaster.instance.inputHandler.downArrowListener -= NextButton;
+        GameMaster.instance.inputHandler.enterListener -= SelectButton;
+    }
+
     public void Activate(bool active)
     {
-        oldActive = active;
+        isActive = active;
+        if (active) AddListeners();
+        else RemoveListeners();
         canvas.alpha = active ? 1f : 0f;
         canvas.blocksRaycasts = active;
     }
@@ -52,7 +63,6 @@ public class Menu : MonoBehaviour
         {
             buttons[selectedButton]?.PerformAction();
         }
-        isActive = oldActive;
     }
  
     void PreviousButton()
@@ -81,8 +91,6 @@ public class Menu : MonoBehaviour
 
     private void OnDestroy()
     {
-        GameMaster.instance.inputHandler.upArrowListener -= PreviousButton;
-        GameMaster.instance.inputHandler.downArrowListener -= NextButton;
-        GameMaster.instance.inputHandler.enterListener -= SelectButton;
+        RemoveListeners();
     }
 }
