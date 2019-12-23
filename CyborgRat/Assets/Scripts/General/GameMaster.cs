@@ -1,4 +1,6 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.Events;
 
 public class GameMaster 
 {
@@ -32,24 +34,24 @@ public class GameMaster
     {
         Debug.Log("Initializing GameMaster");
 
-        masterObject = new GameObject();
-        masterObject.name = "MasterObject";
+        masterObject = new GameObject { name = "MasterObject" };
+        GameObject.DontDestroyOnLoad(masterObject);
 
         inputHandler = masterObject.AddComponent<InputHandler>();
 
+        SceneManager.sceneLoaded += OnSceneLoaded;
+        OnSceneLoaded(SceneManager.GetSceneByBuildIndex(0), LoadSceneMode.Single);
+    }
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
         mainCamera = PrefabLoader.Load<CameraController>(Resource.Camera);
 
-        if (!isSceneMenu())
+        if (!SceneLoader.isSceneMenu(scene))
         {
             player = PrefabLoader.Load<PlayerController>(Resource.Player);
             player.transform.position = GetSceneInitialPosition();
         }
-    }
-
-    bool isSceneMenu()
-    {
-        GameObject menuObject = GameObject.FindWithTag(menuTag);
-        return menuObject;
     }
 
     Vector3 GetSceneInitialPosition()
