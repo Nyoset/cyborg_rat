@@ -16,6 +16,7 @@ public class MainMenu : Menu
 
     void LoadGame()
     {
-        Debug.Log("Load");
+        ActivateScreen<LoadMenu>();
+        Activate(false);
     }
 }
