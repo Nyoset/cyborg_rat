@@ -1,6 +1,8 @@
 ﻿
 public class NewGameMenu : Menu
 {
+    public InputField[] inputs;
+
     override protected void Start()
     {
         actions = new ButtonAction[] { StartGame, Back };

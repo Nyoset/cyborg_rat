@@ -4,9 +4,8 @@ public class Menu : MonoBehaviour
 {
     public MenuButton[] buttons;
     protected ButtonAction[] actions;
-    public InputField[] inputs;
 
-    private int selectedButton;
+    protected int selectedButton;
     public bool isActive;
 
     CanvasGroup canvas;
@@ -57,7 +56,7 @@ public class Menu : MonoBehaviour
         transform.root.GetComponentInChildren<T>().Activate(true);
     }
 
-    void SelectButton()
+    protected virtual void SelectButton()
     {
         if (isActive)
         {
@@ -65,7 +64,7 @@ public class Menu : MonoBehaviour
         }
     }
  
-    void PreviousButton()
+    protected virtual void PreviousButton()
     {
         selectedButton -= 1;
         if (selectedButton < 0)
@@ -73,7 +72,7 @@ public class Menu : MonoBehaviour
         HighlightButton();
     }
 
-    void NextButton()
+    protected virtual void NextButton()
     {
         selectedButton += 1;
         if (selectedButton >= buttons.Length)
@@ -81,7 +80,7 @@ public class Menu : MonoBehaviour
         HighlightButton();
     }
 
-    void HighlightButton()
+    protected void HighlightButton()
     {
         for (int i = 0; i < buttons.Length; ++i)
         {
