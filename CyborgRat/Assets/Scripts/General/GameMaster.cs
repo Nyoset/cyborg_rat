@@ -15,6 +15,8 @@ public class GameMaster
     public CameraController mainCamera;
     public PlayerController player;
 
+    GameData gameData;
+
     [RuntimeInitializeOnLoadMethod]
     static void Initialize()
     {
@@ -62,5 +64,21 @@ public class GameMaster
             return Vector3.zero;
         }
         return initialPosition.transform.position;
+    }
+
+    public void StartGame(string playerName)
+    {
+        gameData = new GameData(playerName);
+        SceneLoader.StartGame();
+    }
+
+    public void SaveGame()
+    {
+        SaveSystem.SaveGame(gameData);
+    }
+
+    public void LoadGame(string playerName)
+    {
+        gameData = SaveSystem.LoadGame(playerName);
     }
 }

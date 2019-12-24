@@ -5,11 +5,17 @@ public class Menu : MonoBehaviour
     public MenuButton[] buttons;
     protected ButtonAction[] actions;
 
-    int selectedButton;
+    protected int selectedButton;
+    public bool isActive;
+
+    CanvasGroup canvas;
 
     protected virtual void Start()
     {
-        if (actions.Length != buttons.Length)
+        canvas = gameObject.GetComponent<CanvasGroup>();
+        Activate(isActive);
+
+        if (actions?.Length != buttons?.Length)
         {
             Debug.Log("Buttons badly configured!");
             return;
@@ -20,18 +26,45 @@ public class Menu : MonoBehaviour
             buttons[i].SetAction(actions[i]);
         }
         HighlightButton();
+    }
 
+    void AddListeners()
+    {
         GameMaster.instance.inputHandler.upArrowListener += PreviousButton;
         GameMaster.instance.inputHandler.downArrowListener += NextButton;
         GameMaster.instance.inputHandler.enterListener += SelectButton;
     }
 
-    void SelectButton()
+    void RemoveListeners()
     {
-        buttons[selectedButton]?.PerformAction();
+        GameMaster.instance.inputHandler.upArrowListener -= PreviousButton;
+        GameMaster.instance.inputHandler.downArrowListener -= NextButton;
+        GameMaster.instance.inputHandler.enterListener -= SelectButton;
+    }
+
+    public void Activate(bool active)
+    {
+        isActive = active;
+        if (active) AddListeners();
+        else RemoveListeners();
+        canvas.alpha = active ? 1f : 0f;
+        canvas.blocksRaycasts = active;
+    }
+
+    public void ActivateScreen<T>() where T : Menu
+    {
+        transform.root.GetComponentInChildren<T>().Activate(true);
+    }
+
+    protected virtual void SelectButton()
+    {
+        if (isActive)
+        {
+            buttons[selectedButton]?.PerformAction();
+        }
     }
  
-    void PreviousButton()
+    protected virtual void PreviousButton()
     {
         selectedButton -= 1;
         if (selectedButton < 0)
@@ -39,7 +72,7 @@ public class Menu : MonoBehaviour
         HighlightButton();
     }
 
-    void NextButton()
+    protected virtual void NextButton()
     {
         selectedButton += 1;
         if (selectedButton >= buttons.Length)
@@ -47,7 +80,7 @@ public class Menu : MonoBehaviour
         HighlightButton();
     }
 
-    void HighlightButton()
+    protected void HighlightButton()
     {
         for (int i = 0; i < buttons.Length; ++i)
         {
@@ -57,8 +90,6 @@ public class Menu : MonoBehaviour
 
     private void OnDestroy()
     {
-        GameMaster.instance.inputHandler.upArrowListener -= PreviousButton;
-        GameMaster.instance.inputHandler.downArrowListener -= NextButton;
-        GameMaster.instance.inputHandler.enterListener -= SelectButton;
+        RemoveListeners();
     }
 }
