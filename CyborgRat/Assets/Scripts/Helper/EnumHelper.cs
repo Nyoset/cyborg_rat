@@ -12,7 +12,7 @@ public class EnumHelper
 
 static class EnumExtension
 {
-    public static string ToString(this object value)
+    public static string Description(this object value)
     {
         return EnumHelper.GetCustomDescription(value);
     }

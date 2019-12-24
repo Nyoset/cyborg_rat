@@ -24,12 +24,12 @@ public class SceneLoader
 
     public static void LoadScene(GameScene scene)
     {
-        SceneManager.LoadScene(scene.ToString());
+        SceneManager.LoadScene(scene.Description());
     }
 
     public static void LoadLevel(int levelIndex)
     {
-        string sceneName = GameScene.Level.ToString() + levelIndex;
+        string sceneName = GameScene.Level.Description() + levelIndex;
         SceneManager.LoadScene(sceneName);
     }
 
@@ -40,7 +40,7 @@ public class SceneLoader
 
     public static bool isSceneMenu(Scene scene)
     {
-        if (scene.name == GameScene.MainMenu.ToString())
+        if (scene.name == GameScene.MainMenu.Description())
         {
             return true;
         }

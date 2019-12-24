@@ -51,6 +51,7 @@ public class GameMaster
 
         if (!SceneLoader.isSceneMenu(scene))
         {
+            Debug.Log(Resource.Player.ToString());
             player = PrefabLoader.Load<PlayerController>(Resource.Player);
             player.transform.position = GetSceneInitialPosition();
         }
