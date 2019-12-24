@@ -89,4 +89,13 @@ public class Table : MonoBehaviour
             ChangeRowColor(row, rowColor);
         }
     }
+
+    public string GetText(int index)
+    {
+        if (index < 0 || index >= tableRows.Count) return null;
+
+        TextMeshProUGUI label = tableRows[index].transform.GetChild(0).GetComponent<TextMeshProUGUI>();
+        if (label == null) return null;
+        return label.text;
+    }
 }

@@ -51,7 +51,9 @@ public class LoadMenu : Menu
         }
         else
         {
-            Debug.Log("HE");
+            string playerName = table.GetText(selectedButton - buttons.Length);
+            GameMaster.instance.LoadGame(playerName);
+            Debug.Log(playerName);
         }
     }
 }
