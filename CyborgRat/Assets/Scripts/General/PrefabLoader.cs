@@ -3,13 +3,11 @@ using System.ComponentModel;
 
 public enum Resource
 {
-    [Description("Camera")]
     Camera,
 
-    [Description("Player")]
+    [Description("CyborgRat")]
     Player,
 
-    [Description("MenuButton")]
     MenuButton,
 }
 
@@ -23,7 +21,7 @@ public class PrefabLoader : MonoBehaviour
 
     public static T Load<T>(Resource r)
     {
-        GameObject resource = (GameObject)Instantiate(Resources.Load("Prefabs/" + r.ToString()));
+        GameObject resource = (GameObject)Instantiate(Resources.Load("Prefabs/" + r.Description()));
         T typeResource = RemoveCloneFromName(resource).GetComponent<T>();
         return typeResource;
     }
