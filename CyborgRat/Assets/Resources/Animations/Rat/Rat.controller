@@ -18,14 +18,30 @@ BlendTree:
     m_Mirror: 0
   - serializedVersion: 2
     m_Motion: {fileID: 7400000, guid: 9008ab5042ebee94999a3f68f95a54ff, type: 2}
-    m_Threshold: 1
+    m_Threshold: 0.33333334
     m_Position: {x: 0, y: 1}
     m_TimeScale: 1
     m_CycleOffset: 0
     m_DirectBlendParameter: horizontal_movement
     m_Mirror: 0
-  m_BlendParameter: horizontal_movement
-  m_BlendParameterY: vertical_movement
+  - serializedVersion: 2
+    m_Motion: {fileID: 7400000, guid: 30b3cd99b5d7e2e47bec138fde259770, type: 2}
+    m_Threshold: 0.6666667
+    m_Position: {x: 1, y: 0}
+    m_TimeScale: 1
+    m_CycleOffset: 0
+    m_DirectBlendParameter: horizontal_movement
+    m_Mirror: 0
+  - serializedVersion: 2
+    m_Motion: {fileID: 7400000, guid: 1b7f18b5bcadc7746bb34a4822afcd19, type: 2}
+    m_Threshold: 1
+    m_Position: {x: -1, y: 0}
+    m_TimeScale: 1
+    m_CycleOffset: 0
+    m_DirectBlendParameter: horizontal_orientation
+    m_Mirror: 0
+  m_BlendParameter: horizontal_orientation
+  m_BlendParameterY: vertical_orientation
   m_MinThreshold: 0
   m_MaxThreshold: 1
   m_UseAutomaticThresholds: 1
@@ -55,10 +71,26 @@ BlendTree:
     m_CycleOffset: 0
     m_DirectBlendParameter: horizontal_movement
     m_Mirror: 0
-  m_BlendParameter: horizontal_movement
-  m_BlendParameterY: vertical_movement
+  - serializedVersion: 2
+    m_Motion: {fileID: 7400000, guid: ddb93d5c9a0040446a2b9718a3d3acbb, type: 2}
+    m_Threshold: 2.4444444
+    m_Position: {x: 1, y: 0}
+    m_TimeScale: 1
+    m_CycleOffset: 0
+    m_DirectBlendParameter: horizontal_orientation
+    m_Mirror: 0
+  - serializedVersion: 2
+    m_Motion: {fileID: 7400000, guid: b1c8f06917b81324991801b7764ebae2, type: 2}
+    m_Threshold: 3.8888888
+    m_Position: {x: -1, y: 0}
+    m_TimeScale: 1
+    m_CycleOffset: 0
+    m_DirectBlendParameter: horizontal_orientation
+    m_Mirror: 0
+  m_BlendParameter: horizontal_orientation
+  m_BlendParameterY: vertical_orientation
   m_MinThreshold: -0.44444448
-  m_MaxThreshold: 1
+  m_MaxThreshold: 3.8888888
   m_UseAutomaticThresholds: 0
   m_NormalizedBlendValues: 0
   m_BlendType: 1
@@ -97,7 +129,7 @@ AnimatorStateTransition:
   m_TransitionDuration: 0.25
   m_TransitionOffset: 0
   m_ExitTime: 0.75
-  m_HasExitTime: 1
+  m_HasExitTime: 0
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
@@ -111,13 +143,13 @@ AnimatorController:
   m_Name: Rat
   serializedVersion: 5
   m_AnimatorParameters:
-  - m_Name: horizontal_movement
+  - m_Name: horizontal_orientation
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 0}
-  - m_Name: vertical_movement
+  - m_Name: vertical_orientation
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
@@ -189,7 +221,7 @@ AnimatorStateMachine:
   m_EntryTransitions: []
   m_StateMachineTransitions: {}
   m_StateMachineBehaviours: []
-  m_AnyStatePosition: {x: 330, y: -140, z: 0}
+  m_AnyStatePosition: {x: 250, y: -120, z: 0}
   m_EntryPosition: {x: -60, y: 70, z: 0}
   m_ExitPosition: {x: -60, y: -70, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
@@ -214,7 +246,7 @@ AnimatorStateTransition:
   m_TransitionDuration: 0.25
   m_TransitionOffset: 0
   m_ExitTime: 0.516129
-  m_HasExitTime: 1
+  m_HasExitTime: 0
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
