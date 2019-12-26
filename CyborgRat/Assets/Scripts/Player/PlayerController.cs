@@ -4,6 +4,7 @@ public class PlayerController : MonoBehaviour
 {
     Rigidbody2D rb;
     Animator animator;
+
     public float speed = 5f;
 
     Vector2 movement = Vector2.zero;
@@ -27,7 +28,7 @@ public class PlayerController : MonoBehaviour
         animator.SetFloat("speed", movement.sqrMagnitude);
         animator.SetFloat("horizontal_orientation", orientation.x);
         animator.SetFloat("vertical_orientation", orientation.y);
-    } 
+    }
 
     void HorizontalMovement(float value)
     {
