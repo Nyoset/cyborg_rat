@@ -34,6 +34,8 @@
     </linearGradient>
     <linearGradient
        inkscape:collect="always"
+<<<<<<< HEAD
+=======
        id="linearGradient1616">
       <stop
          style="stop-color:#666666;stop-opacity:1;"
@@ -46,6 +48,7 @@
     </linearGradient>
     <linearGradient
        inkscape:collect="always"
+>>>>>>> develop
        id="linearGradient1608">
       <stop
          style="stop-color:#ff0000;stop-opacity:1;"
@@ -86,7 +89,12 @@
        y1="11.021605"
        x2="-110.11504"
        y2="-27.999746"
+<<<<<<< HEAD
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(-313.72024,3.0238095)" />
+=======
        gradientUnits="userSpaceOnUse" />
+>>>>>>> develop
     <linearGradient
        inkscape:collect="always"
        xlink:href="#linearGradient1608"
@@ -98,6 +106,8 @@
        gradientUnits="userSpaceOnUse" />
     <linearGradient
        inkscape:collect="always"
+<<<<<<< HEAD
+=======
        xlink:href="#linearGradient1616"
        id="linearGradient1618"
        x1="-27.214285"
@@ -107,6 +117,7 @@
        gradientUnits="userSpaceOnUse" />
     <linearGradient
        inkscape:collect="always"
+>>>>>>> develop
        xlink:href="#linearGradient1624"
        id="linearGradient1626"
        x1="517.82739"
@@ -123,8 +134,13 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.35"
+<<<<<<< HEAD
+     inkscape:cx="-509.86098"
+     inkscape:cy="1232.3107"
+=======
      inkscape:cx="614.31523"
      inkscape:cy="947.00697"
+>>>>>>> develop
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -133,7 +149,12 @@
      inkscape:window-height="1385"
      inkscape:window-x="67"
      inkscape:window-y="27"
+<<<<<<< HEAD
+     inkscape:window-maximized="1"
+     inkscape:snap-global="false" />
+=======
      inkscape:window-maximized="1" />
+>>>>>>> develop
   <metadata
      id="metadata899">
     <rdf:RDF>
@@ -142,7 +163,11 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+<<<<<<< HEAD
+        <dc:title />
+=======
         <dc:title></dc:title>
+>>>>>>> develop
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -151,6 +176,87 @@
      inkscape:groupmode="layer"
      id="layer1"
      style="filter:url(#filter1523)">
+<<<<<<< HEAD
+    <path
+       style="fill:#ffd2b9;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M -208.64293,-316.07727 V 12.006057 H 119.4404 V -316.07727 Z m 164.041666,85.78081 a 103.96328,78.260902 0 0 1 103.963162,78.26085 103.96328,78.260902 0 0 1 -103.963162,78.260861 103.96328,78.260902 0 0 1 -103.963166,-78.260861 103.96328,78.260902 0 0 1 103.963166,-78.26085 z"
+       id="rect836"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/home/sosnovsky/Unity/cyborg_rat/CyborgRat/Assets/Resources/Graphics/Switch/transparent_base.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <g
+       id="g1004">
+      <path
+         id="rect1531"
+         d="m -426.84658,10.160509 h 118.90141 v 51.391475 h -118.90141 z"
+         style="fill:#ff0000;fill-opacity:1;stroke:#000000;stroke-width:0.3145889;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         inkscape:connector-curvature="0" />
+      <path
+         sodipodi:nodetypes="csc"
+         inkscape:connector-curvature="0"
+         id="ellipse1529"
+         d="m -307.90589,60.795176 c 0,26.450047 -26.62559,42.722544 -59.46991,42.722544 -32.84433,0 -59.46993,-16.272494 -59.46993,-42.722544"
+         style="fill:#ff0000;fill-opacity:1;stroke:#000000;stroke-width:0.26979727;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <ellipse
+         ry="44.243671"
+         rx="59.36272"
+         cy="11.665775"
+         cx="-367.46088"
+         id="path1527"
+         style="fill:url(#linearGradient1577);fill-opacity:1;stroke:#000000;stroke-width:0.25908345;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    </g>
+    <g
+       id="g981">
+      <rect
+         y="-94.583336"
+         x="320.5238"
+         height="328.08334"
+         width="328.08334"
+         id="rect1548"
+         style="fill:#ffd2b9;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         inkscape:export-xdpi="96"
+         inkscape:export-ydpi="96" />
+      <ellipse
+         style="fill:url(#linearGradient1626);fill-opacity:1;stroke:#000000;stroke-width:0.26033738;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="ellipse1550"
+         cx="484.56549"
+         cy="69.458336"
+         rx="103.96328"
+         ry="78.260902" />
+    </g>
+    <g
+       id="g989">
+      <path
+         inkscape:connector-curvature="0"
+         style="fill:#ff0000;fill-opacity:1;stroke:#000000;stroke-width:0.12802729;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 160.51138,26.903917 h 118.90141 v 8.511565 H 160.51138 Z"
+         id="path1552" />
+      <g
+         transform="translate(-264.58333,-30.994048)"
+         id="g967">
+        <path
+           sodipodi:nodetypes="csc"
+           inkscape:connector-curvature="0"
+           id="path1554"
+           d="m 544.03625,66.40953 c 0,25.982458 -25.82416,41.96728 -58.66895,41.96728 -32.8448,10e-6 -60.27259,-15.984819 -60.27259,-41.96728"
+           style="fill:#ff0000;fill-opacity:1;stroke:#000000;stroke-width:0.26740378;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+        <g
+           id="g961">
+          <g
+             id="g957">
+            <ellipse
+               ry="44.243671"
+               rx="59.36272"
+               cy="58.148426"
+               cx="484.49091"
+               id="ellipse1556"
+               style="fill:url(#linearGradient1610);fill-opacity:1;stroke:#000000;stroke-width:0.25908345;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+          </g>
+        </g>
+      </g>
+    </g>
+=======
     <rect
        y="-93.071434"
        x="-217.71429"
@@ -219,5 +325,6 @@
        cx="484.49091"
        id="ellipse1556"
        style="fill:url(#linearGradient1610);fill-opacity:1;stroke:#000000;stroke-width:0.25908345;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+>>>>>>> develop
   </g>
 </svg>
