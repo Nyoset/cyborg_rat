@@ -6,7 +6,7 @@ abstract public class BaseButton : MonoBehaviour, ActionableButton
     Animator animator;
 
     [SerializeField]
-    readonly string id;
+    string id;
     public abstract ButtonState GetState();
     protected abstract void ChangeState();
 
@@ -20,7 +20,7 @@ abstract public class BaseButton : MonoBehaviour, ActionableButton
     {
         animator.SetTrigger("press");
         ChangeState();
-        //GameMaster.instance.currentLevelManager.RecieveButtonEvent(id, GetState());
+        GameMaster.instance.currentLevelManager.RecieveButtonEvent(id, GetState());
     }  
 }
 
