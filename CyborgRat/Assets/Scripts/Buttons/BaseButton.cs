@@ -5,10 +5,14 @@ abstract public class BaseButton : MonoBehaviour, ActionableButton
     Collider2D buttonCollider;
     Animator animator;
 
-    [SerializeField]
-    string id;
+    public string id;
     public abstract ButtonState GetState();
     protected abstract void ChangeState();
+
+    protected virtual bool ShouldNotify()
+    {
+        return true;
+    }
 
     protected virtual void Awake()
     {
@@ -18,9 +22,12 @@ abstract public class BaseButton : MonoBehaviour, ActionableButton
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        animator.SetTrigger("press");
-        ChangeState();
-        GameMaster.instance.currentLevelManager.RecieveButtonEvent(id, GetState());
+        if (ShouldNotify())
+        {
+            animator.SetTrigger("press");
+            ChangeState();
+            GameMaster.instance.currentLevelManager.RecieveButtonEvent(id, GetState());
+        }
     }  
 }
 

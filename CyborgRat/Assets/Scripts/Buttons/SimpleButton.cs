@@ -9,6 +9,12 @@ public class SimpleButton : BaseButton
     {
         state.isPressed = true;
     }
+
+    protected override bool ShouldNotify()
+    {
+        return !state.isPressed;
+    }
+
 }
 
 public class SimpleButtonState : ButtonState
