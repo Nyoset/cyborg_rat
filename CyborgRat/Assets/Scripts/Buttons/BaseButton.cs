@@ -1,28 +1,32 @@
 ﻿using UnityEngine;
 
-public class BaseButton : MonoBehaviour
+abstract public class BaseButton : MonoBehaviour, ActionableButton
 {
     Collider2D buttonCollider;
     Animator animator;
 
-    protected private void Awake()
+    [SerializeField]
+    readonly string id;
+    public abstract ButtonState GetState();
+    protected abstract void ChangeState();
+
+    protected virtual void Awake()
     {
         buttonCollider = gameObject.GetComponent<Collider2D>();
         animator = gameObject.GetComponent<Animator>();
     }
 
-    protected void Start()
-    {
-        
-    }
-
-    protected void Update()
-    {
-        
-    }
-
-    protected void OnTriggerEnter2D(Collider2D collision)
+    void OnTriggerEnter2D(Collider2D collision)
     {
         animator.SetTrigger("press");
-    }
+        ChangeState();
+        //GameMaster.instance.currentLevelManager.RecieveButtonEvent(id, GetState());
+    }  
 }
+
+public interface ActionableButton
+{
+    ButtonState GetState();
+}
+
+abstract public class ButtonState { }
