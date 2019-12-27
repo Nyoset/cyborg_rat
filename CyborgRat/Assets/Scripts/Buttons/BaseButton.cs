@@ -36,4 +36,6 @@ public interface ActionableButton
     ButtonState GetState();
 }
 
-abstract public class ButtonState { }
+public class ButtonState {
+    public bool isPressed;
+}

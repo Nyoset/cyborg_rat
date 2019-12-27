@@ -1,18 +1,12 @@
 ﻿using UnityEngine;
 
-public class SimpleButton : BaseButton
+public class SwitchButton : BaseButton
 {
     ButtonState state = new ButtonState();
     public override ButtonState GetState() => state;
 
     protected override void ChangeState()
     {
-        state.isPressed = true;
+        state.isPressed = !state.isPressed;
     }
-
-    protected override bool ShouldNotify()
-    {
-        return !state.isPressed;
-    }
-
 }
