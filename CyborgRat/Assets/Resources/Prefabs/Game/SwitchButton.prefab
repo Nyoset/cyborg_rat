@@ -172,6 +172,7 @@ GameObject:
   - component: {fileID: 1798385479862129138}
   - component: {fileID: 2130685786806428443}
   - component: {fileID: 6624350958579352758}
+  - component: {fileID: 3328723866866087457}
   m_Layer: 0
   m_Name: SwitchButton
   m_TagString: Untagged
@@ -243,3 +244,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 
+--- !u!114 &3328723866866087457
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5265631946079722184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 930665d3e095ed847ad2cc59d3894fcc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  runOnlyOnce: 1
+  offset: 5
