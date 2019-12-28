@@ -8,7 +8,7 @@ public class SortingLayerOrderer : MonoBehaviour
     [SerializeField]
     private bool runOnlyOnce = true;
     [SerializeField]
-    private int offset = 0;
+    private int offset = 5;
 
     Renderer myRenderer;
     SortingGroup sortingGroup;
