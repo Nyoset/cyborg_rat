@@ -12,6 +12,6 @@ public class DoorReciever : ButtonEventReciever
     override public void RecieveSignal(ButtonState state)
     {
         Debug.Log("Recieved " + state.isPressed);
-        myAnimator.SetTrigger(state.isPressed ? "openDoor" : "closeDoor");
+        myAnimator.AnimateTrigger(state.isPressed ? Transition.OpenDoor : Transition.CloseDoor);
     }
 }
