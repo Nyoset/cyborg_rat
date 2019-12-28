@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class TestReciever : ButtonEventReciever
+public class TestReciever : ButtonEventReceiver
 {
     override public void RecieveSignal(ButtonState state)
     {

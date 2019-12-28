@@ -4,10 +4,16 @@ public class Level1Manager : LevelManager
 {
     private void Start()
     {
-        actions.Add("DoorA", state => effects["DoorA"](state));
+        actions.Add("DoorA", OpenADoors);
         actions.Add("DoorB", state => effects["DoorB"](state));
         actions.Add("DoorC", OpenCDoors);
         actions.Add("DoorD", OpenDDoors);
+    }
+
+    void OpenADoors(ButtonState state)
+    {
+        effects["DoorA"](state);
+        effects["DoorA2"](state);
     }
 
     void OpenCDoors(ButtonState state)

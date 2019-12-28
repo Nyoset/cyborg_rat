@@ -3,10 +3,8 @@ using UnityEngine;
 
 enum Transition
 {
-    [Description("openDoor")]
-    OpenDoor,
-    [Description("closeDoor")]
-    CloseDoor,
+    [Description("doorOpen")]
+    DoorOpen,
 }
 
 static class AnimationTransitionsHelper
@@ -14,5 +12,10 @@ static class AnimationTransitionsHelper
     public static void AnimateTrigger(this Animator animator, Transition transition)
     {
         animator.SetTrigger(transition.Description());
+    }
+
+    public static void AnimateBool(this Animator animator, Transition transition, bool value)
+    {
+        animator.SetBool(transition.Description(), value);
     }
 }
