@@ -1,4 +1,6 @@
 ﻿using UnityEngine;
+using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 public enum Tag
 {
@@ -18,5 +20,21 @@ public static class FindHelper
             }
         }
         return null;
+    }
+
+
+    public static List<T> FindType<T>()
+    {
+        List<T> interfaces = new List<T>();
+        GameObject[] rootGameObjects = SceneManager.GetActiveScene().GetRootGameObjects();
+        foreach (var rootGameObject in rootGameObjects)
+        {
+            T[] childrenInterfaces = rootGameObject.GetComponentsInChildren<T>();
+            foreach (var childInterface in childrenInterfaces)
+            {
+                interfaces.Add(childInterface);
+            }
+        }
+        return interfaces;
     }
 }

@@ -11,6 +11,7 @@ abstract public class BaseButton : MonoBehaviour, ActionableButton
 
     static Color defaultColor = new Color(0, 0, 0, 0);
 
+    public string GetID() => id;
     public abstract ButtonState GetState();
     protected abstract void ChangeState();
 
@@ -50,6 +51,7 @@ abstract public class BaseButton : MonoBehaviour, ActionableButton
 
 public interface ActionableButton
 {
+    string GetID();
     ButtonState GetState();
 }
 
