@@ -27,15 +27,20 @@ abstract public class BaseButton : MonoBehaviour, ActionableButton
         if (buttonColor != defaultColor) colorSprite.color = buttonColor;
     }
 
-    void OnTriggerEnter2D(Collider2D collision)
+    protected virtual void OnTriggerEnter2D(Collider2D collision)
     {
         if (ShouldNotify())
         {
-            animator.AnimateTrigger(Transition.PressButton);
-            ChangeState();
-            GameMaster.instance.currentLevelManager.RecieveButtonEvent(id, GetState());
+            ApplyChanges();
         }
     }  
+
+    protected virtual void ApplyChanges()
+    {
+        animator.AnimateTrigger(Transition.PressButton);
+        ChangeState();
+        GameMaster.instance.currentLevelManager.RecieveButtonEvent(id, GetState());
+    }
 
     void OnValidate()
     {
