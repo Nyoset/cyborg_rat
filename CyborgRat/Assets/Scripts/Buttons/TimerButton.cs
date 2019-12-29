@@ -7,7 +7,7 @@ public class TimerButton : BaseButton
     public override ButtonState GetState() => state;
 
     public float timeLimit = 5f;
-    bool timerActive;
+    private float currentTimer;
 
     protected override void ChangeState()
     {
@@ -16,23 +16,21 @@ public class TimerButton : BaseButton
 
     protected override bool ShouldNotify()
     {
-        return !timerActive;
+        return !state.isPressed || (state.isPressed && currentTimer <= 0);
+    }
+
+    private void FixedUpdate()
+    {
+        if (currentTimer > 0) currentTimer -= Time.fixedDeltaTime;
+        if (currentTimer <= 0 && state.isPressed)
+        {
+            ApplyChanges();
+        }
     }
 
     protected override void OnTriggerEnter2D(Collider2D collision)
     {
         base.OnTriggerEnter2D(collision);
-        StartCoroutine(Timer());
-        timerActive = true;
-    }
-
-    IEnumerator Timer()
-    {
-        yield return new WaitForSeconds(timeLimit);
-        if (timerActive)
-        {
-            ApplyChanges();
-            timerActive = false;
-        }
+        currentTimer = timeLimit;
     }
 }
