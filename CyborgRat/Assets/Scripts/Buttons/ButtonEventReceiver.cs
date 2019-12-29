@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-abstract public class ButtonEventReciever : MonoBehaviour
+abstract public class ButtonEventReceiver : MonoBehaviour
 {
     public string recieverId;
 

@@ -2,10 +2,24 @@
 
 public class Level1Manager : LevelManager
 {
-    private void Start()
+
+    void DoorAEffect(ButtonState state)
     {
-        actions.Add("Test", state => effects["TestReciever"](state));
-        actions.Add("Switch", state => effects["TestReciever"](state));
+        effects["DoorA"](state);
+        effects["DoorA2"](state);
     }
 
+    void DoorCEffect(ButtonState state)
+    {
+        effects["DoorC"](state);
+        effects["DoorC2"](state);
+        effects["DoorC3"](state);
+    }
+
+    void DoorDEffect(ButtonState state)
+    {
+        effects["DoorD"](state);
+        effects["DoorD2"](state);
+        effects["DoorD3"](state);
+    }
 }
