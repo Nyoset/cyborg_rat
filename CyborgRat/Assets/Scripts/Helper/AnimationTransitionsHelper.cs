@@ -5,6 +5,9 @@ enum Transition
 {
     [Description("doorOpen")]
     DoorOpen,
+
+    [Description("pressButton")]
+    PressButton,
 }
 
 static class AnimationTransitionsHelper

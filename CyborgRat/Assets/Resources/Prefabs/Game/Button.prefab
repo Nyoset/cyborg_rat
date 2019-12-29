@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 7718547466542074698}
   - component: {fileID: 2103084510440952556}
   m_Layer: 0
-  m_Name: g1004
-  m_TagString: Untagged
+  m_Name: Button
+  m_TagString: Colorable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -70,7 +70,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 06e0c52f57dde5e439de0cb4fcec3493, type: 3}
-  m_Color: {r: 0, g: 0.228423, b: 0.8584906, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -91,7 +91,7 @@ GameObject:
   - component: {fileID: 8263692778967607886}
   - component: {fileID: 4001716947772161227}
   m_Layer: 0
-  m_Name: transparent_base
+  m_Name: Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -171,10 +171,9 @@ GameObject:
   - component: {fileID: 7582691550946542795}
   - component: {fileID: 1798385479862129138}
   - component: {fileID: 2130685786806428443}
-  - component: {fileID: 6624350958579352758}
-  - component: {fileID: 3328723866866087457}
+  - component: {fileID: 591458787667899733}
   m_Layer: 0
-  m_Name: SwitchButton
+  m_Name: Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -231,20 +230,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0.1}
   serializedVersion: 2
   m_Radius: 0.2642368
---- !u!114 &6624350958579352758
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5265631946079722184}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ac79c17687aece4fbeeeb586eb62a5f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  id: 
---- !u!114 &3328723866866087457
+--- !u!114 &591458787667899733
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

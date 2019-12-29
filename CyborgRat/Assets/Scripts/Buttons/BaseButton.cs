@@ -4,8 +4,13 @@ abstract public class BaseButton : MonoBehaviour, ActionableButton
 {
     Collider2D buttonCollider;
     Animator animator;
+    SpriteRenderer colorSprite;
 
     public string id;
+    public Color buttonColor;
+
+    static Color defaultColor = new Color(0, 0, 0, 0);
+
     public abstract ButtonState GetState();
     protected abstract void ChangeState();
 
@@ -18,17 +23,24 @@ abstract public class BaseButton : MonoBehaviour, ActionableButton
     {
         buttonCollider = gameObject.GetComponent<Collider2D>();
         animator = gameObject.GetComponent<Animator>();
+        colorSprite = gameObject.FindComponentInChildWithTag<SpriteRenderer>(Tag.Colorable);
+        if (buttonColor != defaultColor) colorSprite.color = buttonColor;
     }
 
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (ShouldNotify())
         {
-            animator.SetTrigger("press");
+            animator.AnimateTrigger(Transition.PressButton);
             ChangeState();
             GameMaster.instance.currentLevelManager.RecieveButtonEvent(id, GetState());
         }
     }  
+
+    void OnValidate()
+    {
+        Awake();
+    }
 }
 
 public interface ActionableButton
