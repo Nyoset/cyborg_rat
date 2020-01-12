@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.Events;
+using System;
 
 public class GameMaster 
 {
@@ -14,6 +14,7 @@ public class GameMaster
 
     public CameraController mainCamera;
     public PlayerController player;
+    public LevelManager currentLevelManager;
 
     GameData gameData;
 
@@ -42,7 +43,7 @@ public class GameMaster
         inputHandler = masterObject.AddComponent<InputHandler>();
 
         SceneManager.sceneLoaded += OnSceneLoaded;
-        OnSceneLoaded(SceneManager.GetSceneByBuildIndex(0), LoadSceneMode.Single);
+        OnSceneLoaded(SceneManager.GetActiveScene(), LoadSceneMode.Single);
     }
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
@@ -53,7 +54,15 @@ public class GameMaster
         {
             player = PrefabLoader.Load<PlayerController>(Resource.Player);
             player.transform.position = GetSceneInitialPosition();
+
+            currentLevelManager = LevelManagerFactory.GetLevelManager(scene.name);
         }
+    }
+
+    public Type GetSceneManagerClass()
+    {
+        string className = typeof(LevelManager).ToString().Replace(GameScene.Level.Description(), SceneLoader.GetSceneName());
+        return Type.GetType(className);
     }
 
     Vector3 GetSceneInitialPosition()

@@ -3,11 +3,13 @@ using System.ComponentModel;
 
 public enum Resource
 {
+    [Description("General/Camera")]
     Camera,
 
-    [Description("CyborgRat")]
+    [Description("General/CyborgRat")]
     Player,
 
+    [Description("UI/CyborgRat")]
     MenuButton,
 }
 

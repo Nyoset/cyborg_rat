@@ -1,5 +1,4 @@
-﻿using UnityEngine;
-using UnityEngine.SceneManagement;
+﻿using UnityEngine.SceneManagement;
 using System.ComponentModel;
 
 public enum GameScene
@@ -15,6 +14,11 @@ public class SceneLoader
     public static int AmountOfLevels()
     {
         return SceneManager.sceneCountInBuildSettings;
+    }
+
+    public static string GetSceneName()
+    {
+        return SceneManager.GetActiveScene().name;
     }
 
     public static void ResetScene()
