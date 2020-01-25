@@ -48,11 +48,11 @@ public class GameMaster
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        mainCamera = PrefabLoader.Load<CameraController>(Resource.Camera);
+        mainCamera = ResourceLoader.Load<CameraController>(Resource.Camera);
 
         if (!SceneLoader.isSceneMenu(scene))
         {
-            player = PrefabLoader.Load<PlayerController>(Resource.Player);
+            player = ResourceLoader.Load<PlayerController>(Resource.Player);
             player.transform.position = GetSceneInitialPosition();
 
             currentLevelManager = LevelManagerFactory.GetLevelManager(scene.name);

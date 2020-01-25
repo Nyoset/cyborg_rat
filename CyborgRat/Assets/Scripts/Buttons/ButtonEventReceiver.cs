@@ -13,6 +13,9 @@ abstract public class ButtonEventReceiver : MonoBehaviour
 
     private void OnDestroy()
     {
-        GameMaster.instance.currentLevelManager.effects.Remove(recieverId);
+        if (GameMaster.instance.currentLevelManager.effects.ContainsKey(recieverId))
+        {
+            GameMaster.instance.currentLevelManager.effects.Remove(recieverId);
+        }
     }
 }

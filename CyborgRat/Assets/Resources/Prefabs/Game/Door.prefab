@@ -129,6 +129,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   recieverId: 
   inverted: 0
+  parallel: 0
 --- !u!95 &8574410304533978234
 Animator:
   serializedVersion: 3
